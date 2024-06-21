@@ -21,11 +21,6 @@ model Event {
   Spot        Spot[]
 }
 
-enum SpotStatus {
-  available
-  reserved
-}
-
 model Spot {
   id        String     @id @default(uuid())
   name      String
@@ -34,4 +29,9 @@ model Spot {
   updatedAt DateTime   @updatedAt
   eventId   String
   Event     Event      @relation(fields: [eventId], references: [id])
+}
+
+enum SpotStatus {
+  available
+  reserved
 }
